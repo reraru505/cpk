@@ -6,6 +6,7 @@
 #include "string.h"
 
 int hash(char *s);
-
+void compile(char *s);
+void mksol(char *s);
 
 #endif //HEADER

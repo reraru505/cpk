@@ -1,6 +1,9 @@
-if [ -d "/bin" ]
+if [ -d "bin" ]
+   
 then
-    clang src/*.c -Iheaders -o bin/cpk
+    gcc src/*.c -Iheaders -o bin/cpk
+    
 else
-    mkdir bin & clang src/*.c -Iheaders -o bin/cpk
+    
+    mkdir bin && gcc src/*.c -Iheaders -o bin/cpk
 fi

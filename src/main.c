@@ -1,12 +1,16 @@
 #include "header.h"
 
-int main(void){
+int main(int argc,char *argv[]){
 
-  char *a = "juked";
+  void (*mksol_ptr)(char*) = &mksol;
+  void (*compile_ptr)(char*) = &compile;
 
-  int b =  hash(a);
+  void (*funarr[1000])(char*);
 
-  printf("%d\n",b);
+  funarr[13] = mksol_ptr;
+
+
+  funarr[hash(argv[1])](argv[2]);
 
   return 0;
 
