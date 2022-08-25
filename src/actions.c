@@ -121,17 +121,19 @@ int getcompilemode(){
 
   int index = 0;
   int i = 1;
-  while(i > 0){
+  while(index < 100){
     printf("Getcompilemode loop run\n");
-    if(strcmp(c[index],"COMPILEMODE")){
+    if(!strcmp(c[index],"\nCOMPILEMODE")){
       
-      i = 0;
+      break;
     }
 
     index++;
   }
+
+  //printf("]%s[",);
   
-  int returnval = (int)(c[index + 1][1]);
+  int returnval = atoi(c[index + 2]);
   
 
 }
