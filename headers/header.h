@@ -8,5 +8,7 @@
 int hash(char *s);
 void compile(char *s);
 void mksol(char *s);
+char **lex();
+int getcompilemode();
 
 #endif //HEADER
