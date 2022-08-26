@@ -41,16 +41,26 @@ void compile(char *s){
     printf("COMPILEMODE is %d\n",getcompilemode()); //DEBUG
     
     int COMPILEMODE = getcompilemode();
+    
+    char *c = (char*) calloc(1000,sizeof(char));
+    
+    char *projname = stripspace(getprojname());
+    
+    printf("Project name is ]%s[",projname);
+    
+    sprintf(c,"if [ -d  \"bin\" ]\nthen\n\tgcc src/*.c -Iheaders -o bin/%s\nelse\n\tmkdir bin && gcc src/*.c -Iheaders -o bin/%s\n\nfi",projname,projname);
 
     switch (COMPILEMODE){
       case 0:
-	system("if [ -d  \"bin\" ]\nthen\ngcc src/*.c -Iheaders -o bin/cpk\nelse\nmkdir bin && gcc src/*.c -Iheaders -o bin/cpk\nfi");
+	system(c);
 	break;
     }
 
 
 
 }
+
+
 
 
 

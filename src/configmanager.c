@@ -79,7 +79,7 @@ int getcompilemode(){
   int i = 1;									    
   while(index < 100){								    
     printf("Getcompilemode loop run\n");					    
-    if(!strcmp(c[index],"\nCOMPILEMODE") || strcmp(c[index],"COMPILEMODE")){	    
+    if(!strcmp(c[index],"\nCOMPILEMODE") || !strcmp(c[index],"COMPILEMODE")){	    
       										    
       break;									    
     }										    
@@ -95,3 +95,47 @@ int getcompilemode(){
   										    
 										    
 }										    
+
+
+char *getprojname(){
+
+  char **c  = lex();								    
+										    
+  int index = 0;								    
+  int i = 1;									    
+  while(index < 100){								    
+    printf("Getprojectname loop run\n");					    
+    if(!strcmp(c[index],"\nSOLNAME") || !strcmp(c[index],"SOLNAME")){	    
+      										    
+      break;									    
+    }										    
+										    
+    index++;									    
+  }										    
+	printf("c[index] is %s",c[index + 1]);  
+  return c[index + 2];		
+
+}
+
+char *stripspace(char *c){
+
+	int l = strlen(c);
+	char *retval = (char*) calloc(50,sizeof(char));
+	int j = 0;
+	for(int i = 0;i < l;i++){
+	if(!isspace(c[i])){
+		retval[j] = c[i];
+		j++;
+	}
+	}
+	
+	return retval;
+}
+
+
+
+
+
+
+
+
