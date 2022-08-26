@@ -6,3 +6,5 @@ intended simple package manager for C languae
 ./cpk compile
 
 sudo cp bin/cpk /usr/bin
+
+## Note it only wroks on linux
