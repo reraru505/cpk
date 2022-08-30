@@ -41,7 +41,7 @@ char **lex(){
   int k = 0;									    
   int l = 0;									    
   										    
-  while(i < numbytes){								    
+  while(i < numbytes +1){								    
     if(str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ){			    
       printf("whitespase found\n");						    
       while(j < i){								    
@@ -112,7 +112,7 @@ char *getprojname(){
 										    
     index++;									    
   }										    
-	printf("c[index] is %s",c[index + 1]);  
+	printf("c[index] is %s\n",c[index + 1]);  
   return c[index + 2];		
 
 }
@@ -128,11 +128,53 @@ char *stripspace(char *c){
 		j++;
 	}
 	}
+
+printf("stripped spaces \n");
 	
 	return retval;
 }
 
+void setcompilemode(char **c,char * compilemode){
+  
+  int index = 0;									    
+  while(index < 100){								    
+    printf("Getprojectname loop run\n");					    
+    if(!strcmp(c[index],"\nCOMPILEMODE") || !strcmp(c[index],"COMPILEMODE")){	    
+      										    
+      break;									    
+    }										    
+    
+    index++;									    
+  }
 
+  c[index + 2] = compilemode;
+
+
+}
+
+char * getlibs(){
+  char ** c  = lex();
+
+  char * retval = (char *) calloc(1000,sizeof(char));
+
+  int len = 1000;//sizeof(c)/sizeof(c[1]);
+
+  for(int i = 0;i < len;i++){
+    char *a = stripspace(c[i]);
+
+    printf("a is %s\n",a);;
+    if(a[0] == '-'&&a[1]== 'l'){
+      sprintf(retval," %s",a);
+      
+    }
+  }
+
+  printf("len is equal to = %d \n",len);
+
+  printf("%s",retval);
+
+  return retval;
+ }
 
 
 
