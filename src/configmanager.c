@@ -41,7 +41,7 @@ char **lex(){
   int k = 0;									    
   int l = 0;									    
   										    
-  while(i < (numbytes +2)){								    
+  while(i < (numbytes + 10)){								    
     if(str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ){			    
       printf("whitespase found\n");						    
       while(j < i){								    
@@ -54,7 +54,20 @@ char **lex(){
       l = 0;									    
       k++;									    
     }										    
-    i++;									    
+    i++;
+    									    
+  }
+  
+  printf("numbytes = %li \n",numbytes);
+  printf("i = %d \n",i);
+
+  while(j < (numbytes+10)){
+
+    printf("\nfinal loop\n");
+  
+  	c[k+1][l] = str[j];
+  	
+  	j++; 	
   }										    
 										    
  										    
@@ -162,9 +175,10 @@ char * getlibs(){
   for(int i = 0;i < len;i++){
     char *a = stripspace(c[i]);
 
-    printf("a is %s\n",a);;
-    if(a[0] == '-'&&a[1]== 'l'){
-      sprintf(retval," %s",a);
+    printf("a is %s\n",a);
+    if(a[0] == '-' && a[1]== 'l'){
+      strcat(retval,a);
+      strcat(retval," ");
       
     }
   }

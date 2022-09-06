@@ -1,0 +1,5 @@
+src/hash.c
+src/compile.c
+src/configmanager.c
+src/main.c
+src/actions.c

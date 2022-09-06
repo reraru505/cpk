@@ -59,6 +59,8 @@ if(COMPILEMODE == 0){
 }else if(COMPILEMODE == 1){
 
  char * placeholder = getlibs();
+ 
+ printf("%s\n",placeholder);
 
 sprintf(c,"if [ -d \"bin\" ]\nthen\n\tgcc %s -Iheaders -Llibs %s -o bin/%s\nelse\n\tmkdir bin && gcc %s -Iheaders -Llibs %s -o bin/%s\nfi",src,placeholder,projname,src,placeholder,projname);
   
