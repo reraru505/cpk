@@ -41,7 +41,7 @@ char **lex(){
   int k = 0;									    
   int l = 0;									    
   										    
-  while(i < numbytes +1){								    
+  while(i < (numbytes +2)){								    
     if(str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ){			    
       printf("whitespase found\n");						    
       while(j < i){								    

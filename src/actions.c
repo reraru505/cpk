@@ -35,48 +35,48 @@ void mksol(char *s){
   
 }
 
-void compile(char *s){
+// void compile(char *s){
 
   
-    printf("COMPILEMODE is %d\n",getcompilemode()); //DEBUG
+//     printf("COMPILEMODE is %d\n",getcompilemode()); //DEBUG
     
-    int COMPILEMODE = getcompilemode();
+//     int COMPILEMODE = getcompilemode();
     
-    char *c = (char*) calloc(10000,sizeof(char));
+//     char *c = (char*) calloc(10000,sizeof(char));
     
-    char *projname = stripspace(getprojname());
+//     char *projname = stripspace(getprojname());
     
-    printf("Project name is ]%s[",projname);
+//     printf("Project name is ]%s[",projname);
     
-/*    
-    switch (COMPILEMODE){
-      case 0:
-	system(c);
-	break;
-      case 1:
-    }
-*/
+// /*    
+//     switch (COMPILEMODE){
+//       case 0:
+// 	system(c);
+// 	break;
+//       case 1:
+//     }
+// */
 
-if(COMPILEMODE == 0){
+// if(COMPILEMODE == 0){
 
- sprintf(c,"if [ -d  \"bin\" ]\nthen\n\tgcc src/*.c -Iheaders -o bin/%s\nelse\n\tmkdir bin && gcc src/*.c -Iheaders -o bin/%s\n\nfi",projname,projname);
+//  sprintf(c,"if [ -d  \"bin\" ]\nthen\n\tif [ -d \"src/**\" ]\n\t\tthen\n\t\t\tgcc src/*.c src/**/*.c -Iheaders -o bin/%s\n\t\telse\n\t\t\tgcc src/*.c -Iheaders -o bin/%s\n\t\tfi\nelse\n\tif [ -d \"src/**\" ]\n\t\tthen\n \t\t\tmkdir bin && gcc src/*.c src/**/*.c -Iheaders -o bin/%s\n\t\telse\n\t\t\tmkdir bin && gcc src/*.c -Iheaders -o bin/%s\n\n\t\tfi\nfi",projname,projname,projname,projname);
 
- system(c);
+//  system(c);
 
-}else if(COMPILEMODE == 1){
+// }else if(COMPILEMODE == 1){
 
- char * placeholder = getlibs();
+//  char * placeholder = getlibs();
 
-sprintf(c,"if [ -d  \"bin\" ]\nthen\n\tgcc src/*.c -Iheaders -Llibs %s -o bin/%s\nelse\n\tmkdir bin && gcc src/*.c -Iheaders -Llibs %s -o bin/%s\n\nfi",placeholder,projname,placeholder,projname);
+// sprintf(c,"if [ -d  \"bin\" ]\nthen\n\tif [ -d \"src/*/\" ]\n\t\tthen\n\t\t\tgcc src/*.c src/**/*.c -Iheaders -Llibs %s -o bin/%s\n\t\telse\n\t\t\tgcc src/*.c -Iheaders -Llibs %s -o bin/%s\n\t\tfi\nelse\n\tif [ -d \"src/*/\" ]\n\t\tthen\n \t\t\tmkdir bin && gcc src/*.c src/**/*.c -Iheaders -Llibs %s -o bin/%s\n\t\telse\n\t\t\tmkdir bin && gcc src/*.c -Iheaders -Llibs %s -o bin/%s\n\n\t\tfi\nfi",placeholder,projname,placeholder,projname,placeholder,projname,placeholder,projname);
   
-system(c);
+// system(c);
 
-}
+// }
     
 
 
 
-}
+//}
 
 void addlib(char *s){
   
