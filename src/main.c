@@ -1,26 +1,13 @@
 #include "header.h"
 
-void run(char *s){
-	
-	char* name =  stripspace(getprojname());
-	char* command = (char *) calloc(1000,sizeof(char));
-	sprintf(command,"./bin/%s",name);
-	printf("%s\n",command);
-	system(command);
-}
-
-void car(char *s){
-
-  compile(s);
-  
-  char* name =  stripspace(getprojname());
-  char* command = (char *) calloc(1000,sizeof(char));
-  sprintf(command,"./bin/%s",name);
-  printf("%s\n",command);
-  system(command);
-}
 
 int main(int argc,char *argv[]){
+
+  if (argc == 1){
+
+    printf("Usage :\ncompile {to compile your project } \nrun {to run compiled project}\ncar {compile and run}\naddlib {to add lis to to the project mentioned in .cpk file}\nmksol {to make new solution}\n");
+    return 0;
+  }
 
   void (*mksol_ptr)(char*) = &mksol;
   void (*compile_ptr)(char*) = &compile;

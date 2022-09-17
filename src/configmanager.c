@@ -23,13 +23,8 @@ char **lex(){
   fread(str, sizeof(char), numbytes, f);					    
   fclose(f);									    
 										    
-  printf("%s",str); //Debug							    
-										    
-//  char **c = (char**) malloc(1000 * sizeof(char*));				    
-//  for(int i = 0 ; i < 1000;i++){						    
-//    c[i] = (char*) malloc(100 * sizeof(char));				    
-//										    
-//}										    
+  // printf("%s",str); //Debug							    
+			       
   char **c = (char **) calloc(1000, sizeof(char *));				    
   for(int i = 0;i < 1000;i++){							    
     c[i] = (char*) calloc(100,sizeof(char));					    
@@ -43,10 +38,10 @@ char **lex(){
   										    
   while(i < (numbytes + 10)){								    
     if(str[i] == ' ' || str[i] == '\n' || str[i] == '\t' ){			    
-      printf("whitespase found\n");						    
+  //    printf("whitespase found\n");						    
       while(j < i){								    
 	c[k][l] = str[j];							    
-	printf("c[%d][%d] is set to str[%d]\n",k,l,j);				    
+//	printf("c[%d][%d] is set to str[%d]\n",k,l,j);				    
 	j++;									    
 	l++;									    
       }										    
@@ -58,12 +53,12 @@ char **lex(){
     									    
   }
   
-  printf("numbytes = %li \n",numbytes);
-  printf("i = %d \n",i);
+  //printf("numbytes = %li \n",numbytes);
+  //printf("i = %d \n",i);
 
   while(j < (numbytes+10)){
 
-    printf("\nfinal loop\n");
+  //  printf("\nfinal loop\n");
   
   	c[k+1][l] = str[j];
   	
@@ -72,11 +67,11 @@ char **lex(){
 										    
  										    
 										    
-  printf("printing array\n");							    
+//  printf("printing array\n");							    
 										    
-  for(int i = 0; i < k ; i++){ 							    
-    printf("%s\n",c[i]);		//DEBUG					    
-   }										    
+ // for(int i = 0; i < k ; i++){ 							    
+//    printf("%s\n",c[i]);		//DEBUG					    
+ //  }										    
 										    
   return c;									    
 										    
@@ -91,7 +86,7 @@ int getcompilemode(){
   int index = 0;								    
   int i = 1;									    
   while(index < 100){								    
-    printf("Getcompilemode loop run\n");					    
+   // printf("Getcompilemode loop run\n");					    
     if(!strcmp(c[index],"\nCOMPILEMODE") || !strcmp(c[index],"COMPILEMODE")){	    
       										    
       break;									    
@@ -117,7 +112,7 @@ char *getprojname(){
   int index = 0;								    
   int i = 1;									    
   while(index < 100){								    
-    printf("Getprojectname loop run\n");					    
+  //  printf("Getprojectname loop run\n");					    
     if(!strcmp(c[index],"\nSOLNAME") || !strcmp(c[index],"SOLNAME")){	    
       										    
       break;									    
@@ -125,7 +120,7 @@ char *getprojname(){
 										    
     index++;									    
   }										    
-	printf("c[index] is %s\n",c[index + 1]);  
+	//printf("c[index] is %s\n",c[index + 1]);  
   return c[index + 2];		
 
 }
@@ -142,7 +137,7 @@ char *stripspace(char *c){
 	}
 	}
 
-printf("stripped spaces \n");
+//printf("stripped spaces \n");
 	
 	return retval;
 }
@@ -151,7 +146,7 @@ void setcompilemode(char **c,char * compilemode){
   
   int index = 0;									    
   while(index < 100){								    
-    printf("Getprojectname loop run\n");					    
+  //  printf("Getprojectname loop run\n");					    
     if(!strcmp(c[index],"\nCOMPILEMODE") || !strcmp(c[index],"COMPILEMODE")){	    
       										    
       break;									    
@@ -175,7 +170,7 @@ char * getlibs(){
   for(int i = 0;i < len;i++){
     char *a = stripspace(c[i]);
 
-    printf("a is %s\n",a);
+  //  printf("a is %s\n",a);
     if(a[0] == '-' && a[1]== 'l'){
       strcat(retval,a);
       strcat(retval," ");
@@ -183,9 +178,9 @@ char * getlibs(){
     }
   }
 
-  printf("len is equal to = %d \n",len);
+ // printf("len is equal to = %d \n",len);
 
-  printf("%s",retval);
+ // printf("%s",retval);
 
   return retval;
  }

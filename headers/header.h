@@ -7,10 +7,12 @@
 #include "ctype.h"
 
 int hash(char *s);
+
 void compile(char *s);
 void mksol(char *s);
 void addlib(char *s);
-
+void run(char *s);
+void car(char *s);
 
 
 char **lex();

@@ -30,10 +30,6 @@ void compile(char *s){
     fclose(cfiles);
 
     for (long i = 0; i < numbytes;i++){
-        // if(src[i] == '.' && src [i+1] == '/'){
-        //     src[i] = ' ';
-        //     src[i+1] = ' ';
-        // }
         if(src[i] == '\n'){
             src[i] = ' ';
         }

@@ -1,5 +1,26 @@
 #include "header.h"
 
+void run(char *s){
+	
+	char* name =  stripspace(getprojname());
+	char* command = (char *) calloc(1000,sizeof(char));
+	sprintf(command,"./bin/%s",name);
+	printf("%s\n",command);
+	system(command);
+}
+
+void car(char *s){
+
+  compile(s);
+  
+  char* name =  stripspace(getprojname());
+  char* command = (char *) calloc(1000,sizeof(char));
+  sprintf(command,"./bin/%s",name);
+  printf("%s\n",command);
+  system(command);
+}
+
+
 void mksol(char *s){
 
   int len = strlen(s);
@@ -35,48 +56,6 @@ void mksol(char *s){
   
 }
 
-// void compile(char *s){
-
-  
-//     printf("COMPILEMODE is %d\n",getcompilemode()); //DEBUG
-    
-//     int COMPILEMODE = getcompilemode();
-    
-//     char *c = (char*) calloc(10000,sizeof(char));
-    
-//     char *projname = stripspace(getprojname());
-    
-//     printf("Project name is ]%s[",projname);
-    
-// /*    
-//     switch (COMPILEMODE){
-//       case 0:
-// 	system(c);
-// 	break;
-//       case 1:
-//     }
-// */
-
-// if(COMPILEMODE == 0){
-
-//  sprintf(c,"if [ -d  \"bin\" ]\nthen\n\tif [ -d \"src/**\" ]\n\t\tthen\n\t\t\tgcc src/*.c src/**/*.c -Iheaders -o bin/%s\n\t\telse\n\t\t\tgcc src/*.c -Iheaders -o bin/%s\n\t\tfi\nelse\n\tif [ -d \"src/**\" ]\n\t\tthen\n \t\t\tmkdir bin && gcc src/*.c src/**/*.c -Iheaders -o bin/%s\n\t\telse\n\t\t\tmkdir bin && gcc src/*.c -Iheaders -o bin/%s\n\n\t\tfi\nfi",projname,projname,projname,projname);
-
-//  system(c);
-
-// }else if(COMPILEMODE == 1){
-
-//  char * placeholder = getlibs();
-
-// sprintf(c,"if [ -d  \"bin\" ]\nthen\n\tif [ -d \"src/*/\" ]\n\t\tthen\n\t\t\tgcc src/*.c src/**/*.c -Iheaders -Llibs %s -o bin/%s\n\t\telse\n\t\t\tgcc src/*.c -Iheaders -Llibs %s -o bin/%s\n\t\tfi\nelse\n\tif [ -d \"src/*/\" ]\n\t\tthen\n \t\t\tmkdir bin && gcc src/*.c src/**/*.c -Iheaders -Llibs %s -o bin/%s\n\t\telse\n\t\t\tmkdir bin && gcc src/*.c -Iheaders -Llibs %s -o bin/%s\n\n\t\tfi\nfi",placeholder,projname,placeholder,projname,placeholder,projname,placeholder,projname);
-  
-// system(c);
-
-// }
-    
-
-
-
-//}
 
 void addlib(char *s){
   
@@ -88,7 +67,7 @@ void addlib(char *s){
   
   char *fileout = (char *) calloc(10000,sizeof(char));
 
-  int l = 1000;//sizeof(c)/sizeof(c[0]);
+  int l = 1000;
 
   for(int i = 0;i < l;i++){strcat(fileout,c[i]);}
 
