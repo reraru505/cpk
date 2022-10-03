@@ -21,6 +21,14 @@ To compile the said project use
 $ cpk compile
 ```
 
+## Compilemode usage
+
+1) Set 0 for release without libs
+2) Set 1 for release with libs
+3) Set 2 for debug without libs
+4) Set 3 for debug with libs
+
+
 ## Adding libraries
 
 1) Go to your cpkinfo.cpk 
