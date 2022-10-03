@@ -1,5 +1,5 @@
-src/hash.c
-src/compile.c
 src/configmanager.c
-src/main.c
+src/compile.c
+src/hash.c
 src/actions.c
+src/main.c

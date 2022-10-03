@@ -2,9 +2,19 @@
 
 void run(char *s){
 	
+  int COMPILEMODE = getcompilemode();
+
 	char* name =  stripspace(getprojname());
 	char* command = (char *) calloc(1000,sizeof(char));
-	sprintf(command,"./bin/%s",name);
+
+	
+
+  if(COMPILEMODE == 0 || COMPILEMODE == 1){
+    sprintf(command,"./bin/release/%s",name);
+  }else if(COMPILEMODE == 2 || COMPILEMODE == 3){
+    sprintf(command,"./bin/debug/%s",name);
+  }
+
 	printf("%s\n",command);
 	system(command);
 }
@@ -13,11 +23,7 @@ void car(char *s){
 
   compile(s);
   
-  char* name =  stripspace(getprojname());
-  char* command = (char *) calloc(1000,sizeof(char));
-  sprintf(command,"./bin/%s",name);
-  printf("%s\n",command);
-  system(command);
+  run(s);
 }
 
 
