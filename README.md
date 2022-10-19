@@ -1,5 +1,5 @@
 # cpk
-intended simple package manager for C languae
+intended simple code manager for C languae
 
 # installation steps
 
