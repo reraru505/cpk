@@ -36,13 +36,18 @@ $ cpk compile
 3) Add the library headers to the headers directory
 4) Add the libs at the end with "-l" prefix 
   exaple : -lsdl2 -lm
-5) Run the command
- ```sh
-$ cpk addlib
-```
-6) now you can compile your projects with 
+5) now you can compile your projects with 
   ```sh
 $ cpk compile
+```
+# now you can run your projects with 
+  ```sh
+$ cpk run
+```
+
+# now you can compile and run your projects with 
+  ```sh
+$ cpk car
 ```
 
 ## Note it only wroks on linux
