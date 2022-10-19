@@ -10,9 +10,9 @@ void run(char *s){
 	
 
   if(COMPILEMODE == 0 || COMPILEMODE == 1){
-    sprintf(command,"./bin/release/%s",name);
+    sprintf(command,"./release/bin/%s",name);
   }else if(COMPILEMODE == 2 || COMPILEMODE == 3){
-    sprintf(command,"./bin/debug/%s",name);
+    sprintf(command,"./debug/bin/%s",name);
   }
 
 	printf("%s\n",command);

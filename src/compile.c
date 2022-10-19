@@ -48,7 +48,7 @@ void compile(char *s){
 
 if(COMPILEMODE == 0){
 
- sprintf(c,"if [ -d \"bin/release\" ]\nthen\n\tgcc -0 %s -Iheaders -o bin/release/%s\nelse\n\tmkdir bin bin/release && gcc -0 %s -Iheaders -o bin/release/%s\nfi",src,projname,src,projname);
+ sprintf(c,"if [ -d \"release/bin\" ]\nthen\n\tgcc -O0 %s -Iheaders -o release/bin/%s\nelse\n\tmkdir release release/bin && gcc -O0 %s -Iheaders -o release/bin/%s\nfi",src,projname,src,projname);
 
  system(c);
 
@@ -58,13 +58,13 @@ if(COMPILEMODE == 0){
  
  printf("%s\n",placeholder);
 
-sprintf(c,"if [ -d \"bin/releaase\" ]\nthen\n\tgcc -0 %s -Iheaders -Llibs %s -o bin/release/%s\nelse\n\tmkdir bin bin/release && gcc -0 %s -Iheaders -Llibs %s -o bin/release/%s\nfi",src,placeholder,projname,src,placeholder,projname);
+sprintf(c,"if [ -d \"release/bin\" ]\nthen\n\tgcc -O0 %s -Iheaders -Llibs %s -o release/bin/%s\nelse\n\tmkdir release release/bin && gcc -O0 %s -Iheaders -Llibs %s -o release/bin/%s\nfi",src,placeholder,projname,src,placeholder,projname);
   
 system(c);
 
 }else if(COMPILEMODE == 2){
 
-    sprintf(c,"if [ -d \"bin/debug\" ]\nthen\n\tgcc %s -Iheaders -g -o bin/debug/%s\nelse\n\tmkdir bin bin/debug && gcc %s -Iheaders -g -o bin/debug/%s\nfi",src,projname,src,projname);
+    sprintf(c,"if [ -d \"debug/bin\" ]\nthen\n\tgcc %s -Iheaders -g -o debug/bin/%s\nelse\n\tmkdir debug debug/bin && gcc %s -Iheaders -g -o debug/bin/%s\nfi",src,projname,src,projname);
 
     system(c);
 
@@ -74,7 +74,7 @@ system(c);
  
  printf("%s\n",placeholder);
 
-sprintf(c,"if [ -d \"bin/debug\" ]\nthen\n\tgcc %s -Iheaders -Llibs %s -g -o bin/debug/%s\nelse\n\tmkdir bin bin/debug && gcc %s -Iheaders -Llibs %s -g -o bin/debug/%s\nfi",src,placeholder,projname,src,placeholder,projname);
+sprintf(c,"if [ -d \"debug/bin\" ]\nthen\n\tgcc %s -Iheaders -Llibs %s -g -o debug/bin/%s\nelse\n\tmkdir debug debug/bin && gcc %s -Iheaders -Llibs %s -g -o debug/bin/%s\nfi",src,placeholder,projname,src,placeholder,projname);
   
 system(c);
 
